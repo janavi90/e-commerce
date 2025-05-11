@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .checkout {
+            max-width: 400px;
+            margin: auto;
+            text-align: left;
+            border: 2px solid #333;
+            padding: 20px;
+        }
+        .confirmation {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            color: green;
+            margin-top: 50px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .home-btn {
+            margin-top: 20px;
+            background-color: #007bff;
+        }
+        .home-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Checkout</h1>
+
+    <section class="checkout" id="checkoutForm">
+        <h2>Billing Details</h2>
+        <form onsubmit="placeOrder(event)">
+            <label>Name:</label>
+            <input type="text" required><br>
+            <label>Email:</label>
+            <input type="email" required><br>
+            <label>Address:</label>
+            <textarea required></textarea><br>
+            <label>Payment Method:</label>
+            <select required>
+                <option>Credit Card</option>
+                <option>PayPal</option>
+                <option>Cash on Delivery</option>
+            </select><br>
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
+
+    <div class="confirmation" id="confirmationMessage">
+        ✅ Your order has been placed!
+    </div>
+
+    <button class="home-btn" onclick="goHome()">Home</button>
+
+    <script>
+        function placeOrder(event) {
+            event.preventDefault(); // Prevent form submission
+            document.getElementById("checkoutForm").style.display = "none"; // Hide checkout form
+            document.getElementById("confirmationMessage").style.display = "block"; // Show confirmation message
+        }
+
+        function goHome() {
+            window.location.href = "index.html"; // Redirect to home page
+        }
+    </script>
+</body>
+</html>

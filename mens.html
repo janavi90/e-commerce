@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Fashion</title>
+    <style>
+        body {
+            background-image: url('images/mens back.jpg'); /* Path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 46px;
+            font-family: cursive;
+            margin-bottom: 10px;
+        }
+        nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 28px;
+            transition: 0.3s ease;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .header {
+            font-size: 34px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: lighter;
+            padding: 10px;
+            text-align: center;
+        }
+        .item {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .item img {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Men's Fashion</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h2>Shirt's Collection</h2>
+    </div>
+    <div class="container">
+        <div class="item">
+            <img src="images/shirt 1.jpg" alt="Full Sleeve Shirt">
+            <p>Full Sleeve Shirt</p>
+            <p>₹399</p>
+            <button onclick="addToCart('Full Sleeve Shirt', 399, 'images/shirt 1.jpg')">Add to Cart</button>
+            n>
+        </div>
+        <div class="item">
+            <img src="images/shirt 2.jpg" alt="Black Shirt">
+            <p>Black Shirt</p>
+            <p>₹549</p>
+            <button onclick="addToCart('Black Shirt', 549,'images/shirt 2.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/shirt 3.jpg" alt="Cream Shirt">
+            <p>Cream Shirt</p>
+            <p>₹400</p>
+            <button onclick="addToCart('Cream Shirt', 400,'images/shirt 3.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/shirt 4.jpg" alt="Black Half Sleeves Shirt">
+            <p>Black Half Sleeves Shirt</p>
+            <p>₹600</p>
+            <button onclick="addToCart('Black Half Sleeves Shirt', 600,'images/shirt 4.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/shirt 5.jpg" alt="Dark Blue Shirt">
+            <p>Dark Blue Shirt</p>
+            <p>₹700</p>
+            <button onclick="addToCart('Dark Blue Shirt', 700,'images/shirt 5.jpg')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <h2>Pant's Collection</h2>
+    </div>
+    <div class="container">
+        <div class="item">
+            <img src="images/pant 1.jpg" alt="Black Wideleg">
+            <p>Black Wideleg</p>
+            <p>₹1399</p>
+            <button onclick="addToCart('Black Wideleg', 1399,'images/pant 1.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/pant 2.jpg" alt="Cream Cargo">
+            <p>Cream Cargo</p>
+            <p>₹1549</p>
+            <button onclick="addToCart('Cream Cargo', 1549,'images/pant 2.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/pant 3.jpg" alt="Black Cargo">
+            <p>Black Cargo</p>
+            <p>₹1499</p>
+            <button onclick="addToCart('Black Cargo', 1499,'images/pant 3.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/pant 4.jpg" alt="Jogger Pant">
+            <p>Jogger Pant</p>
+            <p>₹999</p>
+            <button onclick="addToCart('Jogger Pant', 999,'images/pant 4.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/pant 5.jpg" alt="Shaded Black Cargo Pant">
+            <p>Shaded Black Cargo Pant</p>
+            <p>₹1200</p>
+            <button onclick="addToCart('Shaded Black Cargo Pant', 1200,'images/pant 5.jpg')">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(itemName, price, imagePath) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: itemName, price: price, image: imagePath });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(itemName + " added to cart!");
+        }
+    </script>
+    
+</body>
+</html>

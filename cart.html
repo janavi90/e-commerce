@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #cart {
+            margin-top: 20px;
+            border: 2px solid #333;
+            padding: 10px;
+            text-align: left;
+            display: inline-block;
+            width: 60%;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .cart-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .clear-cart, .checkout {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .clear-cart:hover, .checkout:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="mens.html">Men's Products</a>
+            <a href="womens.html">Women's Products</a>
+            <a href="kids.html">Kids' Products</a>
+        </nav>
+    </header>
+
+    <section id="cart"></section>
+    <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+    <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function displayCart() {
+            let cartElement = document.getElementById("cart");
+            cartElement.innerHTML = "<h3>Items in Cart</h3>";
+
+            if (cart.length === 0) {
+                cartElement.innerHTML += "<p>Your cart is empty.</p>";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                cartElement.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <p>${item.name} - ₹${item.price}</p>
+                        <button onclick="removeItem(${index})">Remove</button>
+                    </div>
+                `;
+            });
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            cartElement.innerHTML += `<h4>Total: ₹${total}</h4>`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart();
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cart");
+            cart = [];
+            displayCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert("Redirecting to checkout...");
+            window.location.href = "checkout.html"; // Link to the actual checkout page
+        }
+
+        displayCart();
+    </script>
+</body>
+</html>

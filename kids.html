@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Fashion</title>
+    <style>
+        body {
+            background-image: url('images/kids back.jpg'); /* Path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 46px;
+            font-family: cursive;
+            margin-bottom: 10px;
+        }
+        nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            font-size: 28px;
+            transition: 0.3s ease;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .header {
+            font-size: 34px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: lighter;
+            padding: 10px;
+            text-align: center;
+        }
+        .item {
+            flex: 1;
+            margin: 10px;
+            text-align: center;
+        }
+        .item img {
+            height: 500px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kids Fashion</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <div class="header">
+        <h2>Girls Collection</h2>
+    </div>
+    <div class="container">
+        <div class="item">
+            <img src="images/k1.jpg" alt="Top and Short Set">
+            <p>Top and Short Set</p>
+            <p>₹1099</p>
+            <button onclick="addToCart('Top and Short Set', 1099, 'images/k1.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/k2.jpg" alt="Pink Cotton Coord Set">
+            <p>Pink Cotton Coord Set</p>
+            <p>₹999</p>
+            <button onclick="addToCart('Pink Cotton Coord Set', 999, 'images/k2.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/k3.jpg" alt="Blue Dress">
+            <p>Blue Dress</p>
+            <p>₹599</p>
+            <button onclick="addToCart('Blue Dress', 599, 'images/k3.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/k4.jpg" alt="Trouser">
+            <p>Trouser</p>
+            <p>₹1299</p>
+            <button onclick="addToCart('Trouser', 1299, 'images/k4.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/k5.jpg" alt="Flare Dress">
+            <p>Flare Dress</p>
+            <p>₹1059</p>
+            <button onclick="addToCart('Flare Dress', 1059, 'images/k5.jpg')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <h2>Boys Collection</h2>
+    </div>
+    <div class="container">
+        <div class="item">
+            <img src="images/kb1.jpg" alt="Brown-Cream Dungaree">
+            <p>Brown-Cream Dungaree</p>
+            <p>₹1399</p>
+            <button onclick="addToCart('Brown-Cream Dungaree', 1399, 'images/kb1.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/kb2.jpg" alt="Waistcoat and Pant Set">
+            <p>Waistcoat and Pant Set</p>
+            <p>₹1549</p>
+            <button onclick="addToCart('Waistcoat and Pant Set', 1549, 'images/kb2.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/kb3.jpg" alt="Coord Set">
+            <p>Coord Set</p>
+            <p>₹1499</p>
+            <button onclick="addToCart('Coord Set', 1499, 'images/kb3.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/kb4.jpg" alt="2-Piece Set">
+            <p>2-Piece Set</p>
+            <p>₹1999</p>
+            <button onclick="addToCart('2-Piece Set', 1999, 'images/kb4.jpg')">Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="images/kb5.jpg" alt="Sweatshirt and Trouser">
+            <p>Sweatshirt and Trouser</p>
+            <p>₹1200</p>
+            <button onclick="addToCart('Sweatshirt and Trouser', 1200, 'images/kb5.jpg')">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function addToCart(itemName, price, imagePath) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push({ name: itemName, price: price, image: imagePath });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(itemName + " added to cart!");
+        }
+    </script>
+    
+</body>
+</html>

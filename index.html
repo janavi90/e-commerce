@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fashion Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Fashion Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-container">
+            <a href="mens.html">
+                <img src="images/mens icon.jpg" alt="Men's Fashion">
+                <span>Men's</span>
+            </a>
+            <a href="womens.html">
+                <img src="images/women's icon.jpg" alt="Women's Fashion">
+                <span>Women's</span>
+            </a>
+            <a href="kids.html">
+                <img src="images/kids icon.jpg" alt="Kids' Fashion">
+                <span>Kids</span>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <h1> Thanks for visiting our site</h1>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            let product = { name: name, price: price };
+            cart.push(product);
+            alert(`${name} added to cart!`);
+        }
+    </script>
+    </body>
+    </html>
